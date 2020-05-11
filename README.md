@@ -29,3 +29,6 @@ The custom field will now appear in project settings. Enter your channel name he
 
 ## License
 Open source licensed under the MIT license (see LICENSE file for details).
+
+## Donate
+BTC 1DcMtyqNATFr5zqncugWrm9ArLFh7yFozQ
