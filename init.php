@@ -2,9 +2,9 @@
 
 /**
  * @Author: Anton Baranov
- * @Date:   2020-05-10 22:11:30
+ * @Author: Dmitrij Omelchuk
  * @Last Modified by:   Anton Baranov
- * @Last Modified time: 2020-05-11 13:31:24
+ * @Last Modified time: 2020-05-12 20:28:52
  */
 
 define('ROCKETCHAT_MODULE', 'rocketchat');

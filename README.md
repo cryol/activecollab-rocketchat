@@ -25,7 +25,9 @@ RocketChat integration for Active Collab 4. Following events are pushed to a pre
 5. Go to "Administration → Project Settings" and enable the first custom field.
 
 ## Configuration
-The custom field will now appear in project settings. Enter your channel name here.
+Enter the name of the channel or group in one of the formats:
+   * #channel_name - for public channels.
+   * group_name - for private groups(User must be a join in group.).
 
 ## License
 Open source licensed under the MIT license (see LICENSE file for details).

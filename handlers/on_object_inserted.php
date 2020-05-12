@@ -2,9 +2,9 @@
 
 /**
  * @Author: Anton Baranov
- * @Date:   2020-05-10 22:11:30
+ * @Author: Dmitrij Omelchuk
  * @Last Modified by:   Anton Baranov
- * @Last Modified time: 2020-05-11 13:31:46
+ * @Last Modified time: 2020-05-12 20:28:29
  */
 
 function rocketchat_handle_on_object_inserted($object){
@@ -15,9 +15,13 @@ function rocketchat_handle_on_object_inserted($object){
         if ($object instanceof Task) {
 
             $project = $object->getProject();
-            if ($channel = $project->getCustomField1()) {
+            if ($target = $project->getCustomField1()) {
 
-                $channel_id = rocketchat_get_channel_id_by_name($channel);
+                if($target[0] === '#'){
+                    $target_id = rocketchat_get_channel_id_by_name($target);
+                } else {
+                    $target_id = rocketchat_get_group_id_by_name($target);
+                }
 
                 $task_id    = $object->getTaskId();
                 $task_name  = $object->getName();
@@ -74,9 +78,13 @@ function rocketchat_handle_on_object_inserted($object){
         if ($object instanceof TaskComment) {
 
             $project = $object->getProject();
-            if ($channel = $project->getCustomField1()) {
+            if ($target = $project->getCustomField1()) {
 
-                $channel_id = rocketchat_get_channel_id_by_name($channel);
+                if($target[0] === '#'){
+                    $target_id = rocketchat_get_channel_id_by_name($target);
+                } else {
+                    $target_id = rocketchat_get_group_id_by_name($target);
+                }
 
                 $task = $object->getParent();
                 $task_id = $task->getTaskId();
@@ -123,9 +131,13 @@ function rocketchat_handle_on_object_inserted($object){
         if ($object instanceof Subtask) {
 
             $project = $object->getProject();
-            if ($channel = $project->getCustomField1()) {
+            if ($target = $project->getCustomField1()) {
 
-                $channel_id = rocketchat_get_channel_id_by_name($channel);
+                if($target[0] === '#'){
+                    $target_id = rocketchat_get_channel_id_by_name($target);
+                } else {
+                    $target_id = rocketchat_get_group_id_by_name($target);
+                }
 
                 $task = $object->getParent();
                 $task_id = $task->getTaskId();

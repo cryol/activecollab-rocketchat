@@ -2,9 +2,9 @@
 
 /**
  * @Author: Anton Baranov
- * @Date:   2020-05-10 22:11:30
+ * @Author: Dmitrij Omelchuk
  * @Last Modified by:   Anton Baranov
- * @Last Modified time: 2020-05-11 13:31:30
+ * @Last Modified time: 2020-05-12 20:32:01
  */
 
 function rocketchat_get_user_by_email($email) {
@@ -41,6 +41,24 @@ function rocketchat_get_channel_id_by_name($name) {
             foreach ($channels as $channel) {
                 if($channel['name'] == ltrim($name, "#")){
                     return $channel['_id'];
+                }
+            }
+        }
+    }
+}
+
+function rocketchat_get_group_id_by_name($name) {
+    static $groups;
+    if (defined('ROCKETCHAT_TOKEN') and defined('ROCKETCHAT_URL') and defined('ROCKETCHAT_USERID')) {
+        if (!$groups) {
+            $rocketchat = new RocketChat(ROCKETCHAT_URL, ROCKETCHAT_TOKEN, ROCKETCHAT_USERID);
+            $response = $rocketchat->call_get('groups.list');
+            if ($response['success']) {
+                $groups = $response['groups'];
+            }
+            foreach ($groups as $group) {
+                if($group['name'] == $name){
+                    return $group['_id'];
                 }
             }
         }
