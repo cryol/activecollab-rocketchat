@@ -4,7 +4,7 @@
  * @Author: Anton Baranov
  * @Author: Dmitrij Omelchuk
  * @Last Modified by:   Anton Baranov
- * @Last Modified time: 2020-05-11 13:31:20
+ * @Last Modified time: 2020-05-13 00:56:53
  */
 
 class RocketChat {
@@ -96,7 +96,7 @@ class RocketChat {
 
 class RocketChatModule extends AngieModule {
 	protected $name = 'rocketchat';
-	protected $version = '1.0';
+	protected $version = '1.0.2';
 
 	var $is_system = false;
 

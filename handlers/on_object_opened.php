@@ -4,7 +4,7 @@
  * @Author: Anton Baranov
  * @Author: Dmitrij Omelchuk
  * @Last Modified by:   Anton Baranov
- * @Last Modified time: 2020-05-12 20:28:23
+ * @Last Modified time: 2020-05-13 00:55:12
  */
 
 function rocketchat_handle_on_object_opened($object) {
@@ -37,7 +37,7 @@ function rocketchat_handle_on_object_opened($object) {
 
                 $rocketchat->call('chat.sendMessage', array(
                         'message' => array(
-                        'rid'     => $channel_id,
+                        'rid'     => $target_id,
                         'alias'   => 'ActiveCollab',
                         'avatar'  => defined('ASSETS_URL') ? ASSETS_URL . '/images/system/default/application-branding/logo.40x40.png'  : '',
                         'msg'     => $msg

@@ -4,7 +4,7 @@
  * @Author: Anton Baranov
  * @Author: Dmitrij Omelchuk
  * @Last Modified by:   Anton Baranov
- * @Last Modified time: 2020-05-12 20:28:29
+ * @Last Modified time: 2020-05-13 00:55:08
  */
 
 function rocketchat_handle_on_object_inserted($object){
@@ -65,7 +65,7 @@ function rocketchat_handle_on_object_inserted($object){
 
                 $rocketchat->call('chat.sendMessage', array(
                     'message' => array(
-                        'rid' => $channel_id,
+                        'rid' => $target_id,
                         'alias'  => 'ActiveCollab',
                         'avatar'  => defined('ASSETS_URL') ? ASSETS_URL . '/images/system/default/application-branding/logo.40x40.png'  : '',
                         'msg' => $msg
@@ -119,7 +119,7 @@ function rocketchat_handle_on_object_inserted($object){
                 $msg = "*{$user_name}* add comment to: *<{$task_url}|#{$task_id}: {$task_name}>*\n\n>>>{$text}";
                 $rocketchat->call('chat.sendMessage', array(
                     'message' => array(
-                        'rid' => $channel_id,
+                        'rid' => $target_id,
                         'alias'  => 'ActiveCollab',
                         'avatar'  => defined('ASSETS_URL') ? ASSETS_URL . '/images/system/default/application-branding/logo.40x40.png'  : '',
                         'msg' => $msg
@@ -172,7 +172,7 @@ function rocketchat_handle_on_object_inserted($object){
                 $msg = "*{$user_name}* add subtask in *<{$task_url}|#{$task_id}: {$task_name}>*\n\n>>>{$text}";
                 $rocketchat->call('chat.sendMessage', array(
                     'message' => array(
-                        'rid' => $channel_id,
+                        'rid' => $target_id,
                         'alias'  => 'ActiveCollab',
                         'avatar'  => defined('ASSETS_URL') ? ASSETS_URL . '/images/system/default/application-branding/logo.40x40.png'  : '',
                         'msg' => $msg
